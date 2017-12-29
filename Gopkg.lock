@@ -2,6 +2,16 @@
 
 
 [[projects]]
+  name = "github.com/google/go-cmp"
+  packages = [
+    "cmp",
+    "cmp/internal/diff",
+    "cmp/internal/function",
+    "cmp/internal/value"
+  ]
+  revision = "97a1ff3c48253a51c601f6e4420181273b6ca0ea"
+
+[[projects]]
   name = "mvdan.cc/xurls"
   packages = ["."]
   revision = "284d56d6f9b9a86a9d5dcf57ec1340731a356d1b"
@@ -9,6 +19,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "7db5a816390e0f2560e7500e7ddae881d0241899149fae1b11eed5a633c1f0d8"
+  inputs-digest = "898c5e42adf306286f2515e992ecafd691c8b5fdf97fc41bab38f5762490d718"
   solver-name = "gps-cdcl"
   solver-version = 1

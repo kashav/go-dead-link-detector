@@ -1,3 +1,7 @@
 [[override]]
   name = "mvdan.cc/xurls"
   revision = "284d56d6f9b9a86a9d5dcf57ec1340731a356d1b"
+
+[[override]]
+  name = "github.com/google/go-cmp"
+  revision = "97a1ff3c48253a51c601f6e4420181273b6ca0ea"
