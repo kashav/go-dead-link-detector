@@ -1,5 +1,7 @@
 ## ded
 
+[![Build Status](https://travis-ci.org/kshvmdn/ded.svg?branch=master)](https://travis-ci.org/kshvmdn/ded) [![Go Report Card](https://goreportcard.com/badge/github.com/kshvmdn/ded)](https://goreportcard.com/report/github.com/kshvmdn/ded)
+
 Find dead links in your source files.
 
 ### Contents
