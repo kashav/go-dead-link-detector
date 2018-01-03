@@ -36,10 +36,10 @@ func pathWorker(paths chan string, matches chan<- ded.Match, quit chan<- int) {
 		raw, err := ded.ReadTextFile(path)
 		if err != nil {
 			log.Println(err)
-			return
+			continue
 		}
 		if len(raw) == 0 {
-			return
+			continue
 		}
 		for _, match := range ded.Parse(path, raw, *ignore) {
 			matches <- match
