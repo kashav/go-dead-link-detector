@@ -22,7 +22,7 @@ Find dead links in your source files.
 #### via Go
 
 ```sh
-$ go get -u -v github.com/kshvmdn/ded/cmd/dep
+$ go get -u -v github.com/kshvmdn/ded/cmd/ded
 $ which ded
 $GOPATH/bin/ded
 ```
