@@ -12,7 +12,7 @@ import (
 	"path/filepath"
 	"runtime"
 
-	"github.com/kshvmdn/ded"
+	"github.com/kashav/ded"
 )
 
 const defaultOutputFormat = `{{ .Filename }}:{{ .Line }}:{{ .Column }}: {{ .URL }} -> {{ .Result }}`
