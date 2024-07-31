@@ -25,7 +25,7 @@ func Parse(filename, raw, ignoreExpr string) []Match {
 	for scanner.Scan() {
 		lineNo++
 		line = scanner.Text()
-		if ms := xurls.Strict().FindAllStringIndex(line, -1); ms != nil {
+		if ms := xurls.Strict.FindAllStringIndex(line, -1); ms != nil {
 			for _, m := range ms {
 				if ignore(line[m[0]:m[1]]) {
 					continue
