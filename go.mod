@@ -1,4 +1,4 @@
-module github.com/kashav/ded
+module github.com/kashav/dead-link-detector
 
 go 1.22.4
 

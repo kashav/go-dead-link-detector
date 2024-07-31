@@ -10,7 +10,6 @@
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
 
-# Compiled binaries (allow cmd/ded)
-ded
-!cmd/ded
-dist
+# Compiled binaries
+detector
+!cmd/detector/

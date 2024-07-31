@@ -12,7 +12,7 @@ import (
 	"path/filepath"
 	"runtime"
 
-	"github.com/kashav/ded"
+	detector "github.com/kashav/dead-link-detector"
 )
 
 const defaultOutputFormat = `{{ .Filename }}:{{ .Line }}:{{ .Column }}: {{ .URL }} -> {{ .Result }}`
@@ -31,9 +31,9 @@ var (
 	workers     = flag.Int("w", 0, "Number of workers (0 = number of CPUs)")
 )
 
-func pathWorker(paths chan string, matches chan<- ded.Match, quit chan<- int) {
+func pathWorker(paths chan string, matches chan<- detector.Match, quit chan<- int) {
 	for path := range paths {
-		raw, err := ded.ReadTextFile(path)
+		raw, err := detector.ReadTextFile(path)
 		if err != nil {
 			log.Println(err)
 			continue
@@ -41,14 +41,14 @@ func pathWorker(paths chan string, matches chan<- ded.Match, quit chan<- int) {
 		if len(raw) == 0 {
 			continue
 		}
-		for _, match := range ded.Parse(path, raw, *ignore) {
+		for _, match := range detector.Parse(path, raw, *ignore) {
 			matches <- match
 		}
 	}
 	quit <- 0
 }
 
-func matchWorker(matches <-chan ded.Match, quit chan<- int) {
+func matchWorker(matches <-chan detector.Match, quit chan<- int) {
 	var (
 		count  int
 		output bytes.Buffer
@@ -113,7 +113,7 @@ func main() {
 	var (
 		quit    = make(chan int, *workers)
 		paths   = make(chan string, 64)
-		matches = make(chan ded.Match, 8)
+		matches = make(chan detector.Match, 8)
 	)
 
 	var (
@@ -149,7 +149,7 @@ func main() {
 			return
 		}
 
-		for _, match := range ded.Parse("stdin", string(b), *ignore) {
+		for _, match := range detector.Parse("stdin", string(b), *ignore) {
 			matches <- match
 		}
 

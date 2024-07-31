@@ -1,4 +1,4 @@
-package ded
+package detector
 
 import (
 	"testing"
